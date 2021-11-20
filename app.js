@@ -7,6 +7,9 @@ const app=express()
 mongoose.connect(url, {useNewUrlParser:true})
 const con=mongoose.connection
 
+const alienRouter=require('./routes/aliens')
+app.use('/aliens', alienRouter)
+
 con.on('open', function(){
     console.log('connected...');
 })
